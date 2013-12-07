@@ -21,34 +21,25 @@ def i = "73167176531330624919225119674426574742355349194934\
 84580156166097919133875499200524063689912560717606\
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450" 
-int highestSum
-int sum = 0
+
+int highestProd
+int prod = 1
 int j = 0
 int k = j + 4
 
-i = i.toList()
-println i.getClass()
-i.each {
-println it
-    it = it.toInteger()
-}
+def g = i.toList()
 
-println "paul" + i[1].getClass()
-while (k <= i[i.size()-1]){
-    for (num in i[j..k]){
-        println num
-        println sum
-        sum = sum + num
+while (k <= g.size()-1){
+    for (num in g[j..k]){
+        prod = prod * num.toInteger()
     }
-    if (sum > highestSum){
-        highestSum = sum
+    if (prod > highestProd){
+        highestProd = prod
     }
-    sum = 0
+    prod = 1
     j+=1
     k = j + 4
-    println j
-    println k
 }
 
 
-println highestSum
+println 'the highest sum ' + highestProd
